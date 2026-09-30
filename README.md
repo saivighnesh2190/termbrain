@@ -84,12 +84,14 @@ Prints the TermBrain banner via `display_welcome()`.
 ```bash
 termbrain doctor check
 ```
-Shows a Rich table with CPU load averages (1/5/15 min), memory used, and disk usage on `/`.
+Shows a Rich table with logical CPU cores, CPU load averages (1/5/15 min), used and available memory, and disk usage on `/`.
 
-Add `--ai` to get a one-sentence AI-generated health summary based on those vitals:
+Add `--ai` to get a beginner-friendly explanation of those vitals:
 ```bash
 termbrain doctor check --ai
 ```
+
+The AI compares load averages with the CPU core count, explains Linux memory usage and caching, evaluates root-disk usage, and recommends safe, read-only investigation commands only when something needs attention.
 
 ### Diagnose Pacman logs
 ```bash
