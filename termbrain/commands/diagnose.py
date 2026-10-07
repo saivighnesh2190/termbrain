@@ -14,7 +14,7 @@ def pacman():
     console.print("[bold cyan]Reading /var/log/pacman.log...[/bold cyan]")
     logs = get_recent_pacman_logs()
     
-    if logs.startswith("Error:"):
+    if logs.startswith("Error"):
         console.print(f"[bold red]{logs}[/bold red]")
         return
     
@@ -35,7 +35,11 @@ def journal():
     """Diagnose recent system journal (journalctl) errors."""
     console.print("[bold cyan]Reading system journal...[/bold cyan]")
     logs = get_recent_journal_logs()
-    
+
+    if logs.startswith("Error"):
+        console.print(f"[bold red]{logs}[/bold red]")
+        return
+
     console.print("[bold yellow]Generating AI Diagnosis...[/bold yellow]\n")
     
     prompt = (
